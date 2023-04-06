@@ -1,0 +1,179 @@
+.login-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color-grey-dark-1, 0.5);
+  z-index: 1000;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  transform: scale(1);
+  opacity: 1;
+
+  transition: all 0.3s;
+  & .login-form {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    padding: 5rem 10rem;
+    background-image: linear-gradient(
+        to bottom,
+        rgba($color-secondary, 0.85),
+        rgba($color-secondary, 0.85)
+      ),
+      url(../src/img/gal-1.jpeg);
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    box-shadow: 1rem 1rem 2rem black;
+    border-radius: 5rem;
+    animation: slide-top 0.5s ease-in-out both;
+    transition: all 0.3s;
+
+    & > h3 {
+      grid-column: 1/ -1;
+      text-align: center;
+      font-size: 4rem;
+    }
+    & .isvalid {
+      grid-column: 1/ -1;
+      text-align: center;
+      font-size: 2rem;
+      line-height: 4.8rem;
+      animation: zoom-in-out 0.5s ease-in-out both;
+      color: red;
+    }
+    & > label {
+      font-size: 3rem;
+      color: white;
+      // justify-self: center;
+    }
+
+    & > input {
+      padding: 1rem;
+      outline: none;
+      border: 1px solid rgb(0, 0, 0);
+      &.form_invalid {
+        border: 1px solid rgb(255, 0, 0);
+      }
+    }
+    & > .main-title,
+    & .sub-title {
+      grid-column: 1/ -1;
+      justify-self: center;
+      color: $color-primary;
+      opacity: 0.7;
+      &:last-child:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+    }
+    & > button {
+      grid-column: 1/ -1;
+      justify-self: center;
+      font-size: 2rem;
+      @media only screen and(max-width: $bp-medium) {
+        margin-top: 5rem;
+        justify-self: stretch;
+      }
+      @media only screen and(max-width: $bp-small) {
+        margin-top: 2rem;
+        justify-self: stretch;
+      }
+    }
+    @media only screen and(max-width: $bp-large) {
+      margin: 0 5rem;
+    }
+    @media only screen and(max-width: $bp-medium) {
+      grid-template-columns: minmax(38rem, 1fr);
+      grid-row-gap: 1rem;
+      padding: 5rem 10rem;
+    }
+    @media only screen and(max-width: $bp-small) {
+      grid-row-gap: 1rem;
+
+      padding: 5rem 5rem;
+    }
+  }
+
+  & .login-check {
+    grid-column: 1/ -1;
+    display: flex;
+    align-items: center;
+  }
+  & .login-checkbox {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 2rem;
+  }
+  & .login-label {
+    line-height: 4.8rem;
+    color: white;
+  }
+  & .signup-form {
+    @extend .login-form;
+    & > p {
+      margin-top: auto;
+    }
+    background-image: linear-gradient(
+        to bottom,
+        rgba($color-secondary, 0.85),
+        rgba($color-secondary, 0.85)
+      ),
+      url(../src/img/house-4.jpeg);
+    animation: slide-right 0.5s ease both 0.1s;
+    @media only screen and(max-width: $bp-small) {
+      padding: 5rem 5rem;
+      grid-row-gap: 0.5rem;
+      & label {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+.close-btn {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  &:hover {
+    cursor: pointer;
+    & span {
+      background-color: rgb(255, 255, 255);
+    }
+  }
+  & span {
+    display: block;
+    width: 3rem;
+    height: 0.3rem;
+    background-color: rgb(135, 134, 134);
+    transition: all 0.3s;
+    transform: rotate(45deg);
+    &:last-child {
+      transform: rotate(-45deg) translate(1rem, -1rem);
+    }
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+.isValidform {
+  outline: red;
+  border: 3px solid red;
+}
+.success {
+  grid-column: 1/ -1;
+  font-size: 5rem;
+  color: white;
+
+  animation: zoom-in 0.5s ease-in-out both;
+}

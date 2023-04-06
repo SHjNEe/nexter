@@ -1,0 +1,108 @@
+.homes {
+  background-color: $color-secondary;
+  grid-column: center-start / center-end;
+  margin: 15rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+  grid-gap: 3rem;
+  padding: 3rem;
+  @media only screen and(max-width: $bp-medium) {
+    padding: 0;
+  }
+}
+.home {
+  background-color: $color-grey-light-1;
+  overflow: hidden;
+  display: grid;
+  grid-row-gap: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__img {
+    width: 100%;
+    transition: all 0.2s;
+    grid-column: 1 / -1;
+    grid-row: 1 /2;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__like {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    height: 4rem;
+    width: 4rem;
+    fill: rgb(117, 114, 114);
+    z-index: 2;
+    justify-self: end;
+    margin: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  &__like-active {
+    animation: zoom-in 0.5s ease-in-out;
+    fill: $color-wine-red;
+  }
+
+  &__name {
+    grid-row: 1/ 2;
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: end;
+    z-index: 2;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+
+    width: 80%;
+    font-family: $font-display;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 1.25rem;
+    background-color: $color-secondary;
+    color: white;
+    font-weight: 400;
+    transform: translateY(50%);
+    &:hover {
+      background-color: $color-secondary-light;
+    }
+  }
+  &__location,
+  &__rooms {
+    margin-top: 2.5rem;
+  }
+
+  &__location,
+  &__rooms,
+  &__area,
+  &__price {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+
+    display: flex;
+    align-items: flex-start;
+    & > p {
+      align-items: flex-start;
+    }
+    svg {
+      fill: $color-primary;
+      height: 3rem;
+      width: 3rem;
+      margin-right: 1rem;
+    }
+  }
+  &__btn {
+    grid-column: 1/ -1;
+    justify-self: center;
+    margin-bottom: 2rem;
+    grid-gap: 1rem;
+  }
+}
+
+.favorites {
+  & > h1 {
+    grid-column: 1 / -1;
+  }
+}

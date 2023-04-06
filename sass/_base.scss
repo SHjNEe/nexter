@@ -1,0 +1,81 @@
+// COLOR VARIABLES
+$color-primary: #d2ae81;
+$color-primary-dark: #b28451;
+
+$color-secondary: #101d2c;
+$color-secondary-light: #386599;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483a;
+$color-grey-dark-2: #6d5d4b;
+$color-wine-red: #904669;
+
+// FONT VARIABLES
+$font-primary: "Nunito", sans-serif;
+$font-display: "Josefin Sans", sans-serif;
+
+$bp-largest: 75em;
+$bp-large: 62.5em;
+$bp-medium: 50em;
+$bp-small: 47em;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  @media only screen and(max-width: $bp-largest) {
+    font-size: 50%;
+  }
+
+  @media only screen and(max-width: $bp-medium) {
+    font-size: 45%;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  color: black;
+  font-weight: 300;
+  line-height: 1.6;
+  background-color: rgba(204, 204, 204, 0.4);
+}
+
+.container {
+  // transition: all 1s;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-rows: 60vh repeat(5, min-content);
+  grid-template-columns:
+    [sidebar-start] 20rem [sidebar-end full-start] minmax(6rem, 1fr)
+    [center-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end])
+    [center-end] minmax(6rem, 1fr) [full-end];
+  @media only screen and(max-width: $bp-large) {
+    grid-template-rows: 60vh repeat(5, min-content);
+    grid-template-columns:
+      [full-start] minmax(6rem, 1fr)
+      [center-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end])
+      [center-end] minmax(6rem, 1fr) [full-end];
+  }
+  @media only screen and(max-width: $bp-medium) {
+    grid-template-rows: calc(80vh - 8rem) min-content min-content min-content repeat(
+        3,
+        min-content
+      );
+  }
+  @media only screen and(max-width: $bp-small) {
+    grid-template-columns:
+      [full-start] minmax(4rem, 1fr)
+      [center-start] repeat(8, [col-start] minmax(min-content, 1fr) [col-end])
+      [center-end] minmax(4rem, 1fr) [full-end];
+  }
+}
